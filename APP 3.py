@@ -7,25 +7,12 @@ import json
 # PAGE CONFIG
 # =========================================================
 
-# Encode logo as base64 to embed inline
-import base64
-from pathlib import Path
+st.set_page_config(
+    page_title="Nano Banana Prompt Generator",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-logo_path = Path("LOGO_BLACK.png")
-logo_b64 = base64.b64encode(logo_path.read_bytes()).decode()
-
-st.markdown(f"""
-<div class="topbar">
-    <div style="display:flex; flex-direction:column; gap:2px;">
-        <span class="topbar-title">Inspiration Based Prompt Engine</span>
-        <span class="topbar-sub">Inspiration-specific prompts for architectural AI rendering</span>
-    </div>
-    <div style="margin-left:auto;">
-        <img src="data:image/png;base64,{logo_b64}"
-             style="height:65px; width:auto; display:block;" />
-    </div>
-</div>
-""", unsafe_allow_html=True)
 # =========================================================
 # CSS — MINIMAL ORANGE / WHITE THEME
 # =========================================================
@@ -222,7 +209,7 @@ html, body, .stApp {
 .stCheckbox span {
     font-size: 13px !important;
     color: #1A1A1A !important;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
     text-transform: none !important;
     letter-spacing: normal !important;
 }
@@ -230,6 +217,11 @@ html, body, .stApp {
     text-transform: none !important;
     font-size: 13px !important;
     letter-spacing: normal !important;
+    color: #1A1A1A !important;
+}
+.stCheckbox p {
+    color: #1A1A1A !important;
+    font-weight: 500 !important;
 }
 
 .stFileUploader > div {
@@ -342,6 +334,13 @@ html, body, .stApp {
 # TOPBAR
 # =========================================================
 
+st.markdown("""
+<div class="topbar">
+    <span class="topbar-title">Nano Banana Prompt Generator</span>
+    <span class="topbar-sub">Pre-render + Inspiration → img2img prompts for Nano Banana</span>
+    <span class="topbar-badge">img · in · nano banana</span>
+</div>
+""", unsafe_allow_html=True)
 
 # =========================================================
 # LAYOUT — 3 columns: controls | images | output
@@ -360,7 +359,7 @@ with col_left:
     GEMINI_API_KEY = st.text_input(
         "Gemini API Key",
         type="password",
-        placeholder="Enter API Key",
+        placeholder="AIza...",
         help="Get your key at https://aistudio.google.com/app/apikey",
         label_visibility="collapsed"
     )
@@ -374,10 +373,12 @@ with col_left:
     gemini_model = st.selectbox(
         "Gemini Model",
         [
-            "gemini-3.1-flash-lite",
             "gemini-2.5-flash",
-            "gemini-3.5-flash",
-            "gemini-2.5-flash-lite",
+            "gemini-2.5-pro",
+            "gemini-2.0-flash",
+            "gemini-2.0-flash-lite",
+            "gemini-1.5-pro",
+            "gemini-1.5-flash",
         ],
         index=0,
         label_visibility="collapsed",
