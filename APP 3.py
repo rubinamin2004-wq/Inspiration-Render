@@ -7,12 +7,25 @@ import json
 # PAGE CONFIG
 # =========================================================
 
-st.set_page_config(
-    page_title="Nano Banana Prompt Generator",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
+# Encode logo as base64 to embed inline
+import base64
+from pathlib import Path
 
+logo_path = Path("LOGO_BLACK.png")
+logo_b64 = base64.b64encode(logo_path.read_bytes()).decode()
+
+st.markdown(f"""
+<div class="topbar">
+    <div style="display:flex; flex-direction:column; gap:2px;">
+        <span class="topbar-title">Nano Banana Prompt Generator</span>
+        <span class="topbar-sub">Image-specific prompts for architectural AI rendering</span>
+    </div>
+    <div style="margin-left:auto;">
+        <img src="data:image/png;base64,{logo_b64}"
+             style="height:65px; width:auto; display:block;" />
+    </div>
+</div>
+""", unsafe_allow_html=True)
 # =========================================================
 # CSS — MINIMAL ORANGE / WHITE THEME
 # =========================================================
