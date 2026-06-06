@@ -342,13 +342,6 @@ html, body, .stApp {
 # TOPBAR
 # =========================================================
 
-st.markdown("""
-<div class="topbar">
-    <span class="topbar-title">Nano Banana Prompt Generator</span>
-    <span class="topbar-sub">Pre-render + Inspiration → img2img prompts for Nano Banana</span>
-    <span class="topbar-badge">img · in · nano banana</span>
-</div>
-""", unsafe_allow_html=True)
 
 # =========================================================
 # LAYOUT — 3 columns: controls | images | output
