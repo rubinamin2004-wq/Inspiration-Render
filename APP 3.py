@@ -6,7 +6,11 @@ import json
 # =========================================================
 # PAGE CONFIG
 # =========================================================
-
+st.set_page_config(
+    page_title="Inspiration Based Prompt Engine",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
 # =========================================================
 # CSS — MINIMAL ORANGE / WHITE THEME
