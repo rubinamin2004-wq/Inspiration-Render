@@ -17,8 +17,8 @@ logo_b64 = base64.b64encode(logo_path.read_bytes()).decode()
 st.markdown(f"""
 <div class="topbar">
     <div style="display:flex; flex-direction:column; gap:2px;">
-        <span class="topbar-title">Nano Banana Prompt Generator</span>
-        <span class="topbar-sub">Image-specific prompts for architectural AI rendering</span>
+        <span class="topbar-title">Inspiration Based Prompt Engine</span>
+        <span class="topbar-sub">Inspiration-specific prompts for architectural AI rendering</span>
     </div>
     <div style="margin-left:auto;">
         <img src="data:image/png;base64,{logo_b64}"
