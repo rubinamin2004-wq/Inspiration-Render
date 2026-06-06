@@ -370,7 +370,7 @@ with col_left:
     GEMINI_API_KEY = st.text_input(
         "Gemini API Key",
         type="password",
-        placeholder="AIza...",
+        placeholder="Enter your API Key",
         help="Get your key at https://aistudio.google.com/app/apikey",
         label_visibility="collapsed"
     )
@@ -384,12 +384,10 @@ with col_left:
     gemini_model = st.selectbox(
         "Gemini Model",
         [
+            "gemini-3.1-flash-lite",
             "gemini-2.5-flash",
-            "gemini-2.5-pro",
-            "gemini-2.0-flash",
-            "gemini-2.0-flash-lite",
-            "gemini-1.5-pro",
-            "gemini-1.5-flash",
+            "gemini-3.5-flash",
+            "gemini-2.5-flash-lite",
         ],
         index=0,
         label_visibility="collapsed",
