@@ -363,6 +363,23 @@ with col_left:
     else:
         st.markdown('<div class="api-status-empty"><span>○</span><span>Enter Gemini API key &nbsp;·&nbsp; <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:#E85D04;text-decoration:none;">Get one free ↗</a></span></div>', unsafe_allow_html=True)
 
+    st.markdown('<div style="margin-top:0.9rem;"></div>', unsafe_allow_html=True)
+    st.markdown('<span style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);">Gemini Model</span>', unsafe_allow_html=True)
+    gemini_model = st.selectbox(
+        "Gemini Model",
+        [
+            "gemini-2.5-flash",
+            "gemini-2.5-pro",
+            "gemini-2.0-flash",
+            "gemini-2.0-flash-lite",
+            "gemini-1.5-pro",
+            "gemini-1.5-flash",
+        ],
+        index=0,
+        label_visibility="collapsed",
+        help="Select the Gemini model used for image analysis. gemini-2.5-flash is recommended for speed and quality."
+    )
+
     st.markdown('<div class="rule"></div>', unsafe_allow_html=True)
 
     # ----- 01 — Render Style -----
@@ -648,7 +665,7 @@ with col_right:
     elif generate_btn:
 
         genai.configure(api_key=GEMINI_API_KEY)
-        vision_model = genai.GenerativeModel("gemini-2.5-flash")
+        vision_model = genai.GenerativeModel(gemini_model)
 
         # ----- Analyze pre-render -----
         with st.spinner("Analyzing pre-render image..."):
