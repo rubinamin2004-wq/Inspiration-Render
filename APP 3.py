@@ -360,7 +360,7 @@ with col_left:
     GEMINI_API_KEY = st.text_input(
         "Gemini API Key",
         type="password",
-        placeholder="AIza...",
+        placeholder="Enter API Key",
         help="Get your key at https://aistudio.google.com/app/apikey",
         label_visibility="collapsed"
     )
