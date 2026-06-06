@@ -221,7 +221,7 @@ html, body, .stApp {
 
 .stCheckbox span {
     font-size: 13px !important;
-    color: var(--text) !important;
+    color: #1A1A1A !important;
     font-weight: 400 !important;
     text-transform: none !important;
     letter-spacing: normal !important;
